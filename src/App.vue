@@ -1,28 +1,68 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <top-menu></top-menu> 
+    <left-menu
+      class="left_menu"
+      v-on:menu-item-clicked="menuItemClickHandler"
+    ></left-menu>
+    <tasks v-show="activePanel === $root.mainMenuItems.TASKS">Задания</tasks>
+    <my-books v-show="activePanel === $root.mainMenuItems.MY_BOOKS">
+      Мои книженции :)
+    </my-books>
+    <div v-show="activePanel === $root.mainMenuItems.INTERESTING">
+      Интересное
+    </div>
+    <div v-show="activePanel === $root.mainMenuItems.MY_TEAM">Моя команда</div>
+    <div v-show="activePanel === $root.mainMenuItems.RATE">Рейтинг</div>
+    <div v-show="activePanel === $root.mainMenuItems.ABOUT">О проекте</div>
+    <div v-show="activePanel === $root.mainMenuItems.MY_PROFILE">
+      Мой профиль
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TopMenu from "./components/TopMenu.vue";
+import LeftMenu from "./components/LeftMenu.vue";
+import MyBooks from "./components/MyBooks.vue";
+import Tasks from "./components/Tasks.vue";
+//import Store from "./store.js"
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    TopMenu,
+    LeftMenu,
+    MyBooks,
+    Tasks,
+  },
+  data() {
+    return {
+      activePanel: this.$root.mainMenuItems.TASKS,
+    };
+  },
+  methods: {
+    menuItemClickHandler(itemKey) {
+      this.activePanel = itemKey;
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.left_menu {
+  width: 200px;
+  min-height: 20%;
+  margin: 0 5px 0 5px;
+  background-color: grey;
+  float: left;
+}
+.center_menu {
+  min-width: 10%;
+  width: 80%;
+  margin: 5px 5px 5px 212px;
+  min-height: 80%;
+  height: 100%;
+  background-color: blue;
 }
 </style>
