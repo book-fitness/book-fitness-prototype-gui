@@ -44,6 +44,9 @@ export default {
         {title: 'Рейтинг', itemKey: this.$root.mainMenuItems.RATE},
         {title: 'О проекте', itemKey: this.$root.mainMenuItems.ABOUT},
         {title: 'Мой профиль', itemKey: this.$root.mainMenuItems.MY_PROFILE},
+        {title: 'Логин', itemKey: this.$root.mainMenuItems.LOGIN},
+        {title: 'Регистрация', itemKey: this.$root.mainMenuItems.REGISTRATION},
+        {title: 'Написать статью', itemKey: this.$root.mainMenuItems.WRITE_ARTICLE},
       ]
     }
   },
