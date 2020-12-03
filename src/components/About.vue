@@ -1,5 +1,5 @@
 <template>
-  <p id=about>О проекте</p>
+  <p></p>
 </template>
 
 <script>

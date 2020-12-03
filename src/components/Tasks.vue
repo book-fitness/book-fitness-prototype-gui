@@ -17,56 +17,61 @@ export default {
   },
   methods: {
     getTasks() {
-        var _this = this;
-        this.$root.axios
+      var _this = this;
+      this.$root.axios
         .get(
-          "http://localhost:8080/BookPrototype-1.0-SNAPSHOT/webresources/book/getBooksByUserId" //how to getUserId?
+          "/webresources/book/getBooksByUserId" //how to getUserId?
           /*{
               Cookie: 'JSESSIONID=v94c6Ymt4U6Exp4uFIg-PalCyq0RdB6qSqT84PFy.desktop-154e136',
           }*/
         )
         .then(function (response) {
-            _this.taskList = response.data;
-            console.log(response);
+          _this.taskList = response.data;
+          console.log(response);
         })
         .catch(function (error) {
-            console.log(error);
+          console.log(error);
         });
     },
     login() {
-        this.$root.axios.post('http://localhost:8080/BookPrototype-1.0-SNAPSHOT/webresources/login', {
-            login: 'igorgmailru',
-            password: 'qwery123456',
-        }, {
+      this.$root.axios
+        .post(
+          "/webresources/login",
+          {
+            login: "igorgmailru",
+            password: "qwery123456",
+          },
+          {
             //withCredentials: true,
-            headers: { 'content-type': 'application/json' },
-        })
+            headers: { "content-type": "application/json" },
+          }
+        )
         .then(function (response) {
-            console.log(response.headers);
-            console.log(response.headers['Set-Cookie']);
-            var cookiesHeader = response.headers['Set-Cookie'];
-            var cookies = cookiesHeader == undefined ? [] : cookiesHeader.splite(";");
-            var loginCookie = null;
-            for (var cookie in cookies) {
-                if (cookie.startsWith("JSESSIONID=")) {
-                    loginCookie = cookie;
-                    break;
-                }
-
+          console.log(response.headers);
+          console.log(response.headers["Set-Cookie"]);
+          var cookiesHeader = response.headers["Set-Cookie"];
+          var cookies =
+            cookiesHeader == undefined ? [] : cookiesHeader.splite(";");
+          var loginCookie = null;
+          for (var cookie in cookies) {
+            if (cookie.startsWith("JSESSIONID=")) {
+              loginCookie = cookie;
+              break;
             }
-            if (loginCookie != null) {
-                this.$root.loginCookie = loginCookie;
-                console.log("loginCookie " + loginCookie);
-            }
-            console.log(response);
+          }
+          if (loginCookie != null) {
+            this.$root.loginCookie = loginCookie;
+            console.log("loginCookie " + loginCookie);
+          }
+          console.log(response);
         })
         .catch(function (error) {
-            console.log(error);
+          console.log(error);
         });
     },
     loadBookData() {
-        return {};
-    }
+      return {};
+    },
   },
 };
 </script>
