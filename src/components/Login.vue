@@ -45,8 +45,8 @@
 export default {
   data() {
     return {
-      login: "igorgmailru",
-      password: "qwery123456",
+      login: "",
+      password: "",
       isHidden: false,
     };
   },

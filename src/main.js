@@ -14,7 +14,7 @@ import axios from 'axios';
 // dev url
 //axios.defaults.baseURL = "http://localhost:8080/BookPrototype";
 // prod
-axios.defaults.baseURL = "/BookPrototype";
+//axios.defaults.baseURL = "/BookPrototype";
 //axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 //axios.defaults.headers.post['Content-Type'] = 'application/json';
 

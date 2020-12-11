@@ -45,7 +45,7 @@ export default {
         .get(
           "/webresources/book/getUserBooks",
           {
-            headers: { Authorization: "Basic " + token },
+            headers: { Authorization: "Bearer " + token },
           }
         )
         .then(function (response) {
@@ -74,7 +74,7 @@ export default {
             coverPath,
           },
           {
-            headers: { "content-type": "application/json", Authorization: "Basic " + token},
+            headers: { "content-type": "application/json", Authorization: "Bearer " + token},
           }
         )
         .then(function (response) {

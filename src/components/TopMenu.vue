@@ -24,7 +24,7 @@ export default {
           "/webresources/logout/logoutToken",
           {},
           {
-            headers: { Authorization: "Basic " + token },
+            headers: { Authorization: "Bearer " + token },
           }
         )
         .then(function (response) {

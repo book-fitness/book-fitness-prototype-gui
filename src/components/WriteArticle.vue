@@ -63,7 +63,7 @@ export default {
               //withCredentials: true,
               headers: {
                 "content-type": "application/json",
-                Authorization: "Basic " + token,
+                Authorization: "Bearer " + token,
               },
             }
           )
@@ -92,7 +92,7 @@ export default {
         .get(
           "/webresources/article/getAllArticles",
           {
-            headers: { Authorization: "Basic " + token },
+            headers: { Authorization: "Bearer " + token },
           }
         )
         .then(function (response) {
